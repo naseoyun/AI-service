@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>job팜 - 구직자와 재직자를 위한 서비스</title>
+    <meta name="description" content="자소서 분석, 기업 분석, 노동시장 예측 등 구직자와 재직자를 위한 프리미엄 통합 서비스 job팜">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <h1 id="brand-title">job팜</h1>
+            <p id="brand-subtitle">구직자와 재직자를 위한 서비스</p>
+        </div>
+        <nav class="main-nav">
+            <ul id="nav-list">
+                <li class="nav-item active" data-tab="resume">자소서 분석</li>
+                <li class="nav-item" data-tab="company">기업 분석</li>
+                <li class="nav-item" data-tab="market">노동시장 예측</li>
+                <li class="nav-item" data-tab="employee">재직자</li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content-area">
+        <section id="resume" class="tab-content active">
+            <div class="glass-card">
+                <h2>자소서 분석</h2>
+                <p>AI를 활용하여 당신의 자기소개서를 정밀하게 분석합니다.</p>
+                <div class="placeholder-visual">
+                    <img src="resume-visual.png" alt="자소서 분석 비주얼" style="width: 100%; height: 100%; object-fit: cover; border-radius: 16px;">
+                </div>
+            </div>
+        </section>
+        
+        <section id="company" class="tab-content">
+            <div class="glass-card">
+                <h2>기업 분석</h2>
+                <p>가고 싶은 기업의 재무, 문화, 비전을 심도 있게 분석해 드립니다.</p>
+            </div>
+        </section>
+
+        <section id="market" class="tab-content">
+            <div class="glass-card">
+                <h2>노동시장 예측</h2>
+                <p>미래 트렌드와 데이터에 기반한 고용 시장 변화를 미리 확인하세요.</p>
+            </div>
+        </section>
+
+        <section id="employee" class="tab-content">
+            <div class="glass-card">
+                <h2>재직자 서비스</h2>
+                <p>이미 취업한 분들을 위한 커리어 관리와 네트워크 서비스를 제공합니다.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 job팜. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

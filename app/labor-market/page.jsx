@@ -21,71 +21,51 @@ export default function LaborMarketPage() {
 
   const industryLabels = {
     '전체': '전체',
-    '금융권': '🏦 금융권',
-    'IT_SW': '💻 IT SW',
-    'IT_HW': '🖥 IT HW',
-    '바이오': '🧬 바이오',
-    '엔터': '🎬 엔터',
-  }
-
-  const trendColor = (trend) => {
-    if (trend === '긍정적') return '#1a4a08'
-    if (trend === '부정적') return '#6b1515'
-    return '#5a3205'
-  }
-
-  const trendBg = (trend) => {
-    if (trend === '긍정적') return '#c8f0a0'
-    if (trend === '부정적') return '#fbc8c8'
-    return '#fde8b0'
+    '금융권': '금융권',
+    'IT_SW': 'IT SW',
+    'IT_HW': 'IT HW',
+    '바이오': '바이오',
+    '엔터': '엔터',
   }
 
   const barColor = (score) => {
-    if (score >= 60) return '#639922'
-    if (score >= 40) return '#BA7517'
-    return '#A32D2D'
+    if (score >= 60) return 'linear-gradient(90deg, #7C3AED, #3B82F6)'
+    if (score >= 40) return 'linear-gradient(90deg, #6D28D9, #8B5CF6)'
+    return 'linear-gradient(90deg, #4C1D95, #7C3AED)'
+  }
+
+  const trendStyle = (trend) => {
+    if (trend === '긍정적') return { background: 'rgba(124,58,237,0.3)', color: '#A78BFA', border: '1px solid rgba(167,139,250,0.4)' }
+    if (trend === '부정적') return { background: 'rgba(239,68,68,0.2)', color: '#FCA5A5', border: '1px solid rgba(252,165,165,0.3)' }
+    return { background: 'rgba(99,102,241,0.2)', color: '#C4B5FD', border: '1px solid rgba(196,181,253,0.3)' }
   }
 
   return (
     <div style={styles.wrap}>
-      <div style={styles.header}>
-        <h1 style={styles.title}>노동시장 전망</h1>
-        <span style={styles.updated}>{data.updated_at} 기준</span>
-      </div>
-
-      <div style={styles.tabRow}>
-        {Object.entries(industryLabels).map(([key, label]) => (
-          <button
-            key={key}
-            style={{ ...styles.tab, ...(selectedIndustry === key ? styles.tabActive : {}) }}
-            onClick={() => { setSelectedIndustry(key); setSelectedTab(null) }}
-          >
-            {label}
-          </button>
-        ))}
-      </div>
+      <div style={styles.bgGlow1} />
+      <div style={styles.bgGlow2} />
 
       {selectedTab ? (
-        <div>
+        <div style={styles.inner}>
           <button style={styles.backBtn} onClick={() => setSelectedTab(null)}>← 전체 보기</button>
 
-          <div style={styles.detailHeader}>
-            <div>
-              <div style={styles.detailIndustryName}>{industryLabels[selectedTab.industry] || selectedTab.industry}</div>
-              <div style={styles.scoreBig}>{selectedTab.score}점</div>
+          <div style={styles.detailHeaderCard}>
+            <div style={styles.detailTop}>
+              <div>
+                <div style={styles.detailIndustryName}>{industryLabels[selectedTab.industry] || selectedTab.industry}</div>
+                <div style={styles.scoreBig}>{selectedTab.score}<span style={styles.scoreUnit}>점</span></div>
+              </div>
+              <span style={{ ...styles.badge, ...trendStyle(selectedTab.trend) }}>
+                {selectedTab.emoji} {selectedTab.trend}
+              </span>
             </div>
-            <span style={{ ...styles.badge, background: trendBg(selectedTab.trend), color: trendColor(selectedTab.trend) }}>
-              {selectedTab.emoji} {selectedTab.trend}
-            </span>
-          </div>
-
-          <div style={styles.barWrap}>
-            <div style={{ ...styles.bar, width: `${selectedTab.score}%`, background: barColor(selectedTab.score) }} />
-          </div>
-
-          <div style={styles.metaRow}>
-            <span>분석 기사 {selectedTab.news_count}건</span>
-            <span>주가 {selectedTab.stock_change}</span>
+            <div style={styles.barWrap}>
+              <div style={{ ...styles.bar, width: `${selectedTab.score}%`, background: barColor(selectedTab.score) }} />
+            </div>
+            <div style={styles.metaRow}>
+              <span>분석 기사 {selectedTab.news_count}건</span>
+              <span>주가 {selectedTab.stock_change}</span>
+            </div>
           </div>
 
           <div style={styles.sectionLabel}>점수 구성</div>
@@ -95,16 +75,16 @@ export default function LaborMarketPage() {
               <span style={styles.breakVal}>긍정 {selectedTab.positive_pct}% · 중립 {selectedTab.neutral_pct}% · 부정 {selectedTab.negative_pct}%</span>
             </div>
             <div style={styles.segBar}>
-              <div style={{ width: `${selectedTab.positive_pct}%`, background: '#639922', height: '100%' }} />
-              <div style={{ width: `${selectedTab.neutral_pct}%`, background: '#888', height: '100%' }} />
-              <div style={{ width: `${selectedTab.negative_pct}%`, background: '#A32D2D', height: '100%' }} />
+              <div style={{ width: `${selectedTab.positive_pct}%`, background: 'linear-gradient(90deg,#7C3AED,#3B82F6)', height: '100%' }} />
+              <div style={{ width: `${selectedTab.neutral_pct}%`, background: 'rgba(255,255,255,0.15)', height: '100%' }} />
+              <div style={{ width: `${selectedTab.negative_pct}%`, background: 'rgba(239,68,68,0.6)', height: '100%' }} />
             </div>
           </div>
 
           <div style={styles.card}>
             <div style={styles.scoreBreakRow}>
               <span style={styles.breakLabel}>주가 등락 (30%)</span>
-              <span style={{ fontWeight: 500, color: selectedTab.stock_change?.startsWith('+') ? '#7dc44e' : '#e06060' }}>
+              <span style={{ fontWeight: 500, color: selectedTab.stock_change?.startsWith('+') ? '#A78BFA' : '#FCA5A5' }}>
                 {selectedTab.stock_change?.startsWith('+') ? '▲' : '▼'} {selectedTab.stock_change}
               </span>
             </div>
@@ -120,7 +100,7 @@ export default function LaborMarketPage() {
                   </div>
                   <div style={styles.heroBody}>
                     <div style={styles.tagRow}>
-                      <span style={{ ...styles.badge, background: trendBg('긍정적'), color: trendColor('긍정적') }}>🟢 긍정</span>
+                      <span style={{ ...styles.badge, ...trendStyle('긍정적') }}>🟢 긍정</span>
                     </div>
                     <div style={styles.heroTitle}>{selectedTab.hero_news.title}</div>
                     <div style={styles.heroMeta}>{selectedTab.hero_news.date} · 감성 점수 {selectedTab.hero_news.sentiment_score}점</div>
@@ -138,11 +118,7 @@ export default function LaborMarketPage() {
                   <a key={idx} href={news.link || '#'} target="_blank" rel="noreferrer" style={styles.newsItem}>
                     <span style={styles.newsRank}>{news.rank || idx + 1}</span>
                     <span style={styles.newsTitle}>{news.title || '제목 없음'}</span>
-                    <span style={{
-                      ...styles.newsBadge,
-                      background: trendBg(news.sentiment === 'positive' ? '긍정적' : '부정적'),
-                      color: trendColor(news.sentiment === 'positive' ? '긍정적' : '부정적'),
-                    }}>
+                    <span style={{ ...styles.badge, fontSize: 10, ...trendStyle(news.sentiment === 'positive' ? '긍정적' : '부정적') }}>
                       {news.sentiment === 'positive' ? '🟢' : '🔴'}
                     </span>
                   </a>
@@ -153,13 +129,30 @@ export default function LaborMarketPage() {
         </div>
 
       ) : (
-        <div>
+        <div style={styles.inner}>
+          <div style={styles.pageHeader}>
+            <h1 style={styles.pageTitle}>노동시장 전망</h1>
+            <span style={styles.updatedAt}>{data.updated_at} 기준</span>
+          </div>
+
+          <div style={styles.tabRow}>
+            {Object.entries(industryLabels).map(([key, label]) => (
+              <button
+                key={key}
+                style={{ ...styles.tab, ...(selectedIndustry === key ? styles.tabActive : {}) }}
+                onClick={() => setSelectedIndustry(key)}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+
           <div style={styles.sectionLabel}>업종별 채용 전망 랭킹</div>
           {filtered.map((item) => (
             <div key={item.industry} style={styles.rankCard} onClick={() => setSelectedTab(item)}>
               <div style={styles.rankCardTop}>
                 <span style={styles.rankName}>{industryLabels[item.industry] || item.industry}</span>
-                <span style={{ ...styles.badge, background: trendBg(item.trend), color: trendColor(item.trend) }}>
+                <span style={{ ...styles.badge, ...trendStyle(item.trend) }}>
                   {item.emoji} {item.trend}
                 </span>
               </div>
@@ -179,41 +172,45 @@ export default function LaborMarketPage() {
 }
 
 const styles = {
-  wrap: { maxWidth: 480, margin: '0 auto', padding: '1.5rem 1rem', fontFamily: 'sans-serif', color: '#ffffff' },
-  loading: { textAlign: 'center', padding: '3rem', color: '#aaa' },
-  header: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' },
-  title: { fontSize: 20, fontWeight: 500, margin: 0, color: '#ffffff' },
-  updated: { fontSize: 12, color: '#aaaaaa' },
-  tabRow: { display: 'flex', gap: 6, marginBottom: '1rem', overflowX: 'auto', paddingBottom: 4 },
-  tab: { fontSize: 13, padding: '4px 12px', borderRadius: 20, border: '1px solid #444', background: 'transparent', cursor: 'pointer', whiteSpace: 'nowrap', color: '#cccccc' },
-  tabActive: { background: '#ffffff', color: '#111111', borderColor: 'transparent' },
-  sectionLabel: { fontSize: 11, fontWeight: 500, color: '#aaaaaa', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 8, marginTop: 16 },
-  rankCard: { border: '1px solid #333', borderRadius: 12, padding: '0.75rem 1rem', marginBottom: 10, cursor: 'pointer', background: '#1e1e1e' },
-  rankCardTop: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 },
-  rankName: { fontSize: 14, fontWeight: 500, color: '#ffffff' },
-  rankCardSub: { display: 'flex', justifyContent: 'space-between', fontSize: 11, color: '#888888', marginTop: 4 },
-  badge: { fontSize: 11, padding: '2px 8px', borderRadius: 20 },
-  barWrap: { background: '#333', borderRadius: 4, height: 5 },
-  bar: { height: 5, borderRadius: 4, transition: 'width 0.4s' },
-  backBtn: { fontSize: 13, color: '#aaaaaa', background: 'none', border: 'none', cursor: 'pointer', marginBottom: 12, padding: 0 },
-  detailHeader: { display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 },
-  detailIndustryName: { fontSize: 12, color: '#aaaaaa', marginBottom: 4 },
-  scoreBig: { fontSize: 32, fontWeight: 500, color: '#ffffff' },
-  metaRow: { display: 'flex', gap: 16, fontSize: 11, color: '#888888', marginTop: 6, marginBottom: 4 },
-  card: { border: '1px solid #333', borderRadius: 10, padding: '0.7rem 0.9rem', marginBottom: 8, background: '#1e1e1e' },
-  scoreBreakRow: { display: 'flex', justifyContent: 'space-between', fontSize: 12, marginBottom: 6 },
-  breakLabel: { color: '#aaaaaa', fontSize: 12 },
-  breakVal: { fontSize: 12, color: '#cccccc' },
+  wrap: { minHeight: '100vh', background: 'linear-gradient(135deg, #0F0C29 0%, #1a1040 50%, #0d1b4b 100%)', position: 'relative', overflow: 'hidden', fontFamily: 'sans-serif' },
+  bgGlow1: { position: 'absolute', top: '-200px', left: '-200px', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(124,58,237,0.25) 0%, transparent 70%)', pointerEvents: 'none' },
+  bgGlow2: { position: 'absolute', bottom: '-200px', right: '-200px', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(59,130,246,0.2) 0%, transparent 70%)', pointerEvents: 'none' },
+  inner: { maxWidth: 520, margin: '0 auto', padding: '2rem 1rem', position: 'relative', zIndex: 1 },
+  loading: { textAlign: 'center', padding: '3rem', color: '#A78BFA' },
+  pageHeader: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' },
+  pageTitle: { fontSize: 24, fontWeight: 600, color: '#ffffff', margin: 0, background: 'linear-gradient(90deg, #A78BFA, #60A5FA)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
+  updatedAt: { fontSize: 12, color: 'rgba(255,255,255,0.4)' },
+  tabRow: { display: 'flex', gap: 8, marginBottom: '1.5rem', overflowX: 'auto', paddingBottom: 4 },
+  tab: { fontSize: 13, padding: '6px 14px', borderRadius: 20, border: '1px solid rgba(167,139,250,0.3)', background: 'rgba(124,58,237,0.1)', cursor: 'pointer', whiteSpace: 'nowrap', color: 'rgba(255,255,255,0.6)', transition: 'all .2s' },
+  tabActive: { background: 'linear-gradient(90deg, #7C3AED, #3B82F6)', color: '#fff', borderColor: 'transparent' },
+  sectionLabel: { fontSize: 11, fontWeight: 500, color: 'rgba(167,139,250,0.7)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 10, marginTop: 20 },
+  rankCard: { border: '1px solid rgba(124,58,237,0.3)', borderRadius: 16, padding: '1rem 1.2rem', marginBottom: 12, cursor: 'pointer', background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(10px)', transition: 'all .2s' },
+  rankCardTop: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 },
+  rankName: { fontSize: 15, fontWeight: 500, color: '#ffffff' },
+  rankCardSub: { display: 'flex', justifyContent: 'space-between', fontSize: 11, color: 'rgba(255,255,255,0.4)', marginTop: 6 },
+  badge: { fontSize: 11, padding: '3px 10px', borderRadius: 20 },
+  barWrap: { background: 'rgba(255,255,255,0.1)', borderRadius: 4, height: 5 },
+  bar: { height: 5, borderRadius: 4, transition: 'width 0.5s' },
+  backBtn: { fontSize: 13, color: 'rgba(167,139,250,0.8)', background: 'none', border: 'none', cursor: 'pointer', marginBottom: 16, padding: 0 },
+  detailHeaderCard: { background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(124,58,237,0.3)', borderRadius: 16, padding: '1.2rem', marginBottom: 8, backdropFilter: 'blur(10px)' },
+  detailTop: { display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 12 },
+  detailIndustryName: { fontSize: 12, color: 'rgba(167,139,250,0.7)', marginBottom: 4 },
+  scoreBig: { fontSize: 40, fontWeight: 700, color: '#ffffff' },
+  scoreUnit: { fontSize: 20, fontWeight: 400, marginLeft: 2 },
+  metaRow: { display: 'flex', gap: 16, fontSize: 11, color: 'rgba(255,255,255,0.4)', marginTop: 8 },
+  card: { border: '1px solid rgba(124,58,237,0.25)', borderRadius: 12, padding: '0.9rem 1rem', marginBottom: 10, background: 'rgba(255,255,255,0.04)', backdropFilter: 'blur(8px)' },
+  scoreBreakRow: { display: 'flex', justifyContent: 'space-between', fontSize: 12, marginBottom: 8 },
+  breakLabel: { color: 'rgba(196,181,253,0.8)', fontSize: 12 },
+  breakVal: { fontSize: 12, color: 'rgba(255,255,255,0.6)' },
   segBar: { display: 'flex', height: 6, borderRadius: 3, overflow: 'hidden' },
-  heroCard: { border: '1px solid #333', borderRadius: 12, overflow: 'hidden', marginBottom: 10, cursor: 'pointer' },
-  heroImg: { background: 'linear-gradient(135deg, #1D9E75, #0F6E56)', height: 70, display: 'flex', alignItems: 'flex-end', padding: '0.5rem 0.75rem' },
+  heroCard: { border: '1px solid rgba(124,58,237,0.3)', borderRadius: 16, overflow: 'hidden', marginBottom: 10, cursor: 'pointer', background: 'rgba(255,255,255,0.04)' },
+  heroImg: { background: 'linear-gradient(135deg, #7C3AED, #3B82F6)', height: 80, display: 'flex', alignItems: 'flex-end', padding: '0.6rem 0.9rem' },
   heroImgLabel: { fontSize: 11, color: 'rgba(255,255,255,0.8)' },
-  heroBody: { padding: '0.6rem 0.75rem', background: '#1e1e1e' },
-  tagRow: { display: 'flex', gap: 6, marginBottom: 6 },
-  heroTitle: { fontSize: 13, fontWeight: 500, lineHeight: 1.4, marginBottom: 4, color: '#ffffff' },
-  heroMeta: { fontSize: 11, color: '#888888' },
-  newsItem: { display: 'flex', alignItems: 'flex-start', gap: 8, padding: '0.4rem 0', borderBottom: '1px solid #333', textDecoration: 'none', color: 'inherit' },
-  newsRank: { fontSize: 12, fontWeight: 500, color: '#888888', minWidth: 16 },
-  newsTitle: { fontSize: 12, flex: 1, lineHeight: 1.4, color: '#ffffff' },
-  newsBadge: { fontSize: 11, padding: '1px 6px', borderRadius: 8, flexShrink: 0 },
+  heroBody: { padding: '0.8rem 1rem' },
+  tagRow: { display: 'flex', gap: 6, marginBottom: 8 },
+  heroTitle: { fontSize: 14, fontWeight: 500, lineHeight: 1.5, marginBottom: 6, color: '#ffffff' },
+  heroMeta: { fontSize: 11, color: 'rgba(255,255,255,0.4)' },
+  newsItem: { display: 'flex', alignItems: 'flex-start', gap: 10, padding: '0.5rem 0', borderBottom: '1px solid rgba(124,58,237,0.2)', textDecoration: 'none', color: 'inherit' },
+  newsRank: { fontSize: 12, fontWeight: 500, color: 'rgba(167,139,250,0.7)', minWidth: 16 },
+  newsTitle: { fontSize: 12, flex: 1, lineHeight: 1.5, color: 'rgba(255,255,255,0.85)' },
 }

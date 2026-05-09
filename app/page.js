@@ -1,8 +1,10 @@
 'use client';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('resume');
+  const router = useRouter();
 
   const tabs = [
     { id: 'resume', label: '자소서 분석', title: '자소서 분석', desc: '자신의 경험이 담긴 네이버 블로그 링크를 넣어보세요. AI가 자소서 주제를 뽑아드립니다.' },
@@ -40,6 +42,14 @@ export default function Home() {
     }
   };
 
+  const handleTabClick = (tab) => {
+    if (tab.id === 'market') {
+      router.push('/labor-market');
+      return;
+    }
+    setActiveTab(tab.id);
+  };
+
   return (
     <main>
       <div className="bg-blur" />
@@ -55,7 +65,7 @@ export default function Home() {
             <button
               key={tab.id}
               className={`nav-item ${activeTab === tab.id ? 'active' : ''}`}
-              onClick={() => setActiveTab(tab.id)}
+              onClick={() => handleTabClick(tab)}
             >
               {tab.label}
             </button>
@@ -64,7 +74,7 @@ export default function Home() {
       </header>
 
       <div className="content-area">
-        {tabs.map((tab) => (
+        {tabs.filter(tab => tab.id !== 'market').map((tab) => (
           activeTab === tab.id && (
             <section key={tab.id} className="glass-card">
               <h2>{tab.title}</h2>
@@ -103,7 +113,7 @@ export default function Home() {
                   {analysisResult && (
                     <div className="result-area highlight">
                       <div className="result-header">
-                        <h3>✨ 분석 결과 및 자소서 추천 주제</h3>
+                        <h3> 분석 결과 및 자소서 추천 주제</h3>
                       </div>
                       <div className="result-text">{analysisResult}</div>
                     </div>

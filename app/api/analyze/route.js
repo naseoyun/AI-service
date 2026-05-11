@@ -8,7 +8,29 @@ const openai = new OpenAI({
 
 export async function POST(req) {
   try {
-    const { url } = await req.json();
+    const { url, additionalInfo, action, originalText, revisionPrompt } = await req.json();
+
+    if (action === 'revise') {
+      if (!originalText || !revisionPrompt) {
+        return NextResponse.json({ error: '원본 텍스트와 수정 프롬프트가 필요합니다.' }, { status: 400 });
+      }
+
+      const completion = await openai.chat.completions.create({
+        model: "gpt-4.1-mini",
+        messages: [
+          {
+            role: "system",
+            content: "당신은 전문적인 자기소개서 컨설턴트입니다. 이전에 작성된 자기소개서 초안을 바탕으로, 사용자의 피드백을 반영하여 글을 완벽하게 다듬어주는 역할을 합니다."
+          },
+          {
+            role: "user",
+            content: `다음 자소서 초안을 바탕으로 사용자의 수정 요청사항을 반영해 다시 작성해주세요.\n\n[이전 자소서 초안]\n${originalText}\n\n[수정 요청사항]\n${revisionPrompt}`
+          }
+        ],
+      });
+      
+      return NextResponse.json({ result: completion.choices[0].message.content });
+    }
 
     if (!url || !url.includes('blog.naver.com')) {
       return NextResponse.json({ error: '유효한 네이버 블로그 링크를 입력해주세요.' }, { status: 400 });
@@ -37,6 +59,11 @@ export async function POST(req) {
       return NextResponse.json({ error: '블로그 본문을 읽어오지 못했습니다.' }, { status: 404 });
     }
 
+    let userPrompt = `다음 블로그 글을 분석해줘: ${blogText.substring(0, 3000)}`;
+    if (additionalInfo) {
+      userPrompt += `\n\n추가 요청사항: ${additionalInfo}`;
+    }
+
     // 4. OpenAI를 사용하여 자소서 정보 추출 및 주제 생성
     const completion = await openai.chat.completions.create({
       model: "gpt-4.1-mini",
@@ -47,7 +74,7 @@ export async function POST(req) {
         },
         {
           role: "user",
-          content: `다음 블로그 글을 분석해줘: ${blogText.substring(0, 3000)}` // 토큰 제한을 위해 일부만 전달
+          content: userPrompt
         }
       ],
     });

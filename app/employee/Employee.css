@@ -1,0 +1,124 @@
+.employee-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
+
+.employee-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.badge {
+  display: inline-block;
+  background: var(--main-purple);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.employee-header h2 {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.employee-header strong {
+  color: var(--main-purple);
+}
+
+.employee-header p {
+  color: var(--text-gray);
+  font-size: 18px;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-bottom: 80px;
+}
+
+.service-card {
+  background: white;
+  border-radius: 24px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-strong);
+}
+
+.service-icon {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.service-card h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.service-card p {
+  font-size: 14px;
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.detail-btn {
+  background: var(--bg-light-gray);
+  color: var(--text-dark);
+  border: none;
+  padding: 10px 25px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.detail-btn:hover {
+  background: var(--main-purple);
+  color: white;
+}
+
+.banner-section {
+  background: linear-gradient(135deg, var(--main-purple) 0%, #4338ca 100%);
+  border-radius: 30px;
+  padding: 60px;
+  color: white;
+  text-align: center;
+}
+
+.banner-content h3 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.banner-content p {
+  opacity: 0.9;
+  margin-bottom: 30px;
+}
+
+.banner-btn {
+  background: white;
+  color: var(--main-purple);
+  border: none;
+  padding: 15px 40px;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.banner-btn:hover {
+  transform: scale(1.05);
+}

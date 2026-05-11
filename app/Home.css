@@ -1,0 +1,141 @@
+.home-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.box-panel {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.2s;
+}
+
+.box-panel:hover {
+  transform: translateY(-4px);
+}
+
+.home-top-section {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 30px;
+}
+
+.panel-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.company-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.img-placeholder {
+  background-color: #f1f3f5;
+  border-radius: 12px;
+  aspect-ratio: 16/9;
+}
+
+.company-card p {
+  font-size: 14px;
+  color: var(--text-dark);
+  margin-top: 15px;
+  font-weight: 500;
+}
+
+.card-label {
+  display: block;
+  font-size: 12px;
+  color: var(--main-purple);
+  margin-top: 5px;
+  font-weight: 700;
+}
+
+.url-cta-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+}
+
+.cta-title {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+.cta-title strong {
+  color: var(--main-purple);
+}
+
+.url-input-group {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border: 2px solid var(--border-color);
+  border-radius: 50px;
+  padding: 6px 6px 6px 20px;
+}
+
+.url-input-group:focus-within {
+  border-color: var(--main-purple);
+}
+
+.url-input-group input {
+  flex: 1;
+  border: none;
+  font-size: 16px;
+}
+
+.arrow-up-btn {
+  background-color: var(--main-purple);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.company-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.img-placeholder-large {
+  background-color: #f1f3f5;
+  border-radius: 12px;
+  aspect-ratio: 4/3;
+  margin-bottom: 15px;
+}
+
+.company-name-placeholder {
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.company-desc-placeholder {
+  font-size: 13px;
+  color: var(--text-gray);
+}

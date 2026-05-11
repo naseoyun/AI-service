@@ -1,0 +1,280 @@
+{
+  "updated_at": "2026-05-10 01:22",
+  "industries": [
+    {
+      "industry": "금융권",
+      "score": 57.3,
+      "trend": "보통",
+      "emoji": "🟡",
+      "news_count": 20,
+      "positive_pct": 25.0,
+      "neutral_pct": 70.0,
+      "negative_pct": 5.0,
+      "stock_change": "+0.0%",
+      "hero_news": {
+        "title": "휴젤, 톡신 수출 고성장에 1Q 최대 영업익…美 직판 준비 본격화",
+        "link": "https://www.medipana.com/news/articleView.html?idxno=410978",
+        "date": "2026-05-10",
+        "sentiment": "positive",
+        "sentiment_score": 100.0
+      },
+      "top5_news": [
+        {
+          "rank": 1,
+          "title": "[경제소식] 하나금융그룹, 서울시수의사회와 상생협력 MOU",
+          "link": "http://www.4th.kr/news/articleView.html?idxno=2111295",
+          "date": "2026-05-10",
+          "sentiment": "positive"
+        },
+        {
+          "rank": 2,
+          "title": "HD현대, 국내 최초 미 해군연구청 함정 연구과제 2건 수주",
+          "link": "https://www.sedaily.com/article/20037317?ref=naver",
+          "date": "2026-05-10",
+          "sentiment": "positive"
+        },
+        {
+          "rank": 3,
+          "title": "[경제소식] 하나증권, 전북창조경제혁신센터와 지역 스타트업 육성 MOU",
+          "link": "http://www.4th.kr/news/articleView.html?idxno=2111479",
+          "date": "2026-05-10",
+          "sentiment": "positive"
+        },
+        {
+          "rank": 4,
+          "title": "앤스로픽, 금융 AI 10종 공개…월가 정조준",
+          "link": "https://www.sedaily.com/article/20041014?ref=naver",
+          "date": "2026-05-10",
+          "sentiment": "positive"
+        },
+        {
+          "rank": 5,
+          "title": "[대기업집단 새얼굴/비바리퍼블리카] 유니콘에서 '대기업' 등극까지 단...",
+          "link": "http://www.consumernews.co.kr/news/articleView.html?idxno=755252",
+          "date": "2026-05-10",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "industry": "엔터",
+      "score": 52.2,
+      "trend": "보통",
+      "emoji": "🟡",
+      "news_count": 20,
+      "positive_pct": 10.0,
+      "neutral_pct": 85.0,
+      "negative_pct": 5.0,
+      "stock_change": "+0.0%",
+      "hero_news": {
+        "title": "[오늘의 게임·IT 소식] 컴투스 '제우스: 오만의 신', 티저 사이트 오픈...",
+        "link": "https://dealsite.co.kr/articles/161302",
+        "date": "2026-05-10",
+        "sentiment": "positive",
+        "sentiment_score": 100.0
+      },
+      "top5_news": [
+        {
+          "rank": 1,
+          "title": "한화투자 \"SM엔터 올해부터 수익성 상승 전망, 국내 신인 보이그룹 데뷔...",
+          "link": "https://www.businesspost.co.kr/BP?command=article_view&num=427825",
+          "date": "2026-05-10",
+          "sentiment": "positive"
+        },
+        {
+          "rank": 2,
+          "title": "'효부' 이수지, 예능상 수상하자 시아버지 투병 고백하며 눈물...\"방송 ...",
+          "link": "https://www.mhnse.com/news/articleView.html?idxno=539739",
+          "date": "2026-05-10",
+          "sentiment": "neutral"
+        },
+        {
+          "rank": 3,
+          "title": "양상국, '핑계고 태도 논란' 속 '놀토' 출연해 한 말...\"음악 잘 안 듣는...",
+          "link": "https://www.mhnse.com/news/articleView.html?idxno=539810",
+          "date": "2026-05-10",
+          "sentiment": "negative"
+        },
+        {
+          "rank": 4,
+          "title": "‘최동석과 이혼’ 박지윤, 과거 사진 보니 집착 쩔던 엄마 “커플룩에...",
+          "link": "https://www.newsen.com/news_view.php?uid=202605091448402510",
+          "date": "2026-05-10",
+          "sentiment": "neutral"
+        },
+        {
+          "rank": 5,
+          "title": "[HCI &amp; UX 코리아 2026/Spring-②] “AI 에이전트 시대, UX는 편리함넘어...",
+          "link": "https://www.etnews.com/20260206000020",
+          "date": "2026-05-10",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "industry": "IT_SW",
+      "score": 51.8,
+      "trend": "보통",
+      "emoji": "🟡",
+      "news_count": 20,
+      "positive_pct": 5.0,
+      "neutral_pct": 95.0,
+      "negative_pct": 0.0,
+      "stock_change": "+0.0%",
+      "hero_news": {
+        "title": "[전망] 넷플릭스 '게임 진출' 가속화… 쿠팡플레이·티빙 영향권 들어가...",
+        "link": "http://www.economytalk.kr/news/articleView.html?idxno=421198",
+        "date": "2026-05-10",
+        "sentiment": "positive",
+        "sentiment_score": 100.0
+      },
+      "top5_news": [
+        {
+          "rank": 1,
+          "title": "[단독] 근로감독관도 재산신고·취업심사 대상",
+          "link": "https://www.hankyung.com/article/2026050722631",
+          "date": "2026-05-10",
+          "sentiment": "neutral"
+        },
+        {
+          "rank": 2,
+          "title": "노영희 \"정진석 공천 절대 안 돼…尹어게인 세력\"[한판승부]",
+          "link": "https://www.nocutnews.co.kr/news/6512220?utm_source=naver&utm_medium=article&utm_campaign=20260505100544",
+          "date": "2026-05-10",
+          "sentiment": "neutral"
+        },
+        {
+          "rank": 3,
+          "title": "\"이제 직접 만든다\"… 유통업계, 뷰티 PB 키우는 속사정",
+          "link": "http://www.seoulwire.com/news/articleView.html?idxno=720054",
+          "date": "2026-05-10",
+          "sentiment": "neutral"
+        },
+        {
+          "rank": 4,
+          "title": "토스인슈어런스, 보험설계사 '세대교체' 이끈다",
+          "link": "https://www.lcnews.co.kr/news/articleView.html?idxno=201807",
+          "date": "2026-05-10",
+          "sentiment": "neutral"
+        },
+        {
+          "rank": 5,
+          "title": "[잡] 사람인 삼성전자 협력사 채용관 오픈 外",
+          "link": "https://www.slist.kr/news/articleView.html?idxno=737640",
+          "date": "2026-05-10",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "industry": "IT_HW",
+      "score": 48.9,
+      "trend": "보통",
+      "emoji": "🟡",
+      "news_count": 20,
+      "positive_pct": 15.0,
+      "neutral_pct": 70.0,
+      "negative_pct": 15.0,
+      "stock_change": "+0.0%",
+      "hero_news": {
+        "title": "‘10억대’ 대박 성과급에 SK하이닉스 공채 지원 열풍",
+        "link": "https://weekly.donga.com/3/all/11/6206002/1",
+        "date": "2026-05-10",
+        "sentiment": "positive",
+        "sentiment_score": 105.0
+      },
+      "top5_news": [
+        {
+          "rank": 1,
+          "title": "시그마인텔 \"中패널업체, 삼성 갤럭시S 일반형 OLED 공급 노린다\"",
+          "link": "https://zdnet.co.kr/view/?no=20260508220338",
+          "date": "2026-05-10",
+          "sentiment": "positive"
+        },
+        {
+          "rank": 2,
+          "title": "삼성도 뛰어든 제조 로봇 전쟁...아틀라스 대항마 나오나",
+          "link": "https://www.etoday.co.kr/news/view/2582737",
+          "date": "2026-05-10",
+          "sentiment": "positive"
+        },
+        {
+          "rank": 3,
+          "title": "삼성전자 공장에 '로봇 군단' 뜨나",
+          "link": "http://www.smedaily.co.kr/news/articleView.html?idxno=356638",
+          "date": "2026-05-10",
+          "sentiment": "neutral"
+        },
+        {
+          "rank": 4,
+          "title": "\"DX는 찬밥 신세\"…삼성 노조 '교섭권 회수' 반발",
+          "link": "https://www.newsway.co.kr/news/view?ud=2026050916015287314",
+          "date": "2026-05-10",
+          "sentiment": "negative"
+        },
+        {
+          "rank": 5,
+          "title": "40조 요구 \"공부 많이 한 분들\"…삼성전자 노조 '선민의식' 도마 위",
+          "link": "https://www.apnews.kr/news/articleView.html?idxno=3048436",
+          "date": "2026-05-10",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "industry": "바이오",
+      "score": 40.4,
+      "trend": "보통",
+      "emoji": "🟡",
+      "news_count": 20,
+      "positive_pct": 5.0,
+      "neutral_pct": 55.0,
+      "negative_pct": 40.0,
+      "stock_change": "+0.0%",
+      "hero_news": {
+        "title": "[제약+] GC녹십자, 美 라레도 혈장센터 FDA 허가 획득 外",
+        "link": "https://news.dealsitetv.com/articles/168470",
+        "date": "2026-05-10",
+        "sentiment": "positive",
+        "sentiment_score": 100.0
+      },
+      "top5_news": [
+        {
+          "rank": 1,
+          "title": "“순혈주의는 옛말”…제약업계, 지금은 ‘외부 수혈’ 전성시대",
+          "link": "https://biz.chosun.com/science-chosun/bio/2026/04/07/XIMGMHPH3VGJXAAMX4G6JX4UVY/?utm_source=naver&utm_medium=original&utm_campaign=biz",
+          "date": "2026-05-10",
+          "sentiment": "negative"
+        },
+        {
+          "rank": 2,
+          "title": "[제약+] 셀트리온, 'CT-P71' 美 FDA 패스트트랙 지정 外",
+          "link": "https://dealsite.co.kr/articles/159926",
+          "date": "2026-05-10",
+          "sentiment": "negative"
+        },
+        {
+          "rank": 3,
+          "title": "[시대리포트]'업계 최고 대우' 삼성바이오 파업, 권리인가 탐욕인가",
+          "link": "https://www.sidae.com/article/2026050313041615163",
+          "date": "2026-05-10",
+          "sentiment": "negative"
+        },
+        {
+          "rank": 4,
+          "title": "신약 심사 240일로 단축…경쟁력 기대·전문성 우려 교차",
+          "link": "https://news.tf.co.kr/read/economy/2315995.htm",
+          "date": "2026-05-10",
+          "sentiment": "neutral"
+        },
+        {
+          "rank": 5,
+          "title": "바이오 정책은 '육성', 제약 현장은 '위축'…엇갈린 온도차는 왜?",
+          "link": "https://www.hitnews.co.kr/news/articleView.html?idxno=75510",
+          "date": "2026-05-10",
+          "sentiment": "neutral"
+        }
+      ]
+    }
+  ]
+}

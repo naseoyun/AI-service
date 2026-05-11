@@ -42,6 +42,13 @@ npm run dev
 ```
 이제 [http://localhost:3000](http://localhost:3000)에서 앱을 확인할 수 있습니다.
 
+## 4-1. 기업 분석 실행
+```bash
+cd C:해당경로\ai-service\services\company-api
+node server.js
+//두개 서버 같이돌려야 돌아갑니다 추후 수정하겠습니다
+```
+
 ## 📁 폴더 구조
 - `app/`: Next.js App Router (페이지 및 API 라우트)
 - `public/`: 정적 이미지 및 자산

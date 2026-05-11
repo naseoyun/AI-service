@@ -61,24 +61,86 @@
   white-space: nowrap;
 }
 
+.analyze-start-btn {
+  background: var(--main-purple);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.analyze-start-btn:hover {
+  background: var(--button-blue);
+  transform: translateY(-2px);
+}
+
+/* Chat Interface Styles */
+.chat-interface-container {
+  background: white;
+  border-radius: 30px;
+  padding: 20px;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  border: 1px solid var(--border-color);
+}
+
+.chat-window {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.chat-bubble {
+  max-width: 80%;
+  padding: 12px 18px;
+  border-radius: 20px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.chat-bubble.assistant {
+  align-self: flex-start;
+  background: var(--bg-light-gray);
+  color: var(--text-dark);
+  border-bottom-left-radius: 5px;
+}
+
+.chat-bubble.user {
+  align-self: flex-end;
+  background: var(--main-purple);
+  color: white;
+  border-bottom-right-radius: 5px;
+}
+
+.chat-input-pill {
+  border-radius: 20px !important;
+  box-shadow: none !important;
+  background: var(--bg-light-gray) !important;
+}
+
 .submit-up-btn {
   background: var(--main-purple);
   color: white;
   border: none;
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: transform 0.2s;
 }
 
-.submit-up-btn:hover {
-  transform: scale(1.1);
-}
-
+/* Result Styles */
 .result-content {
   max-width: 1000px;
   margin: 0 auto;
@@ -102,10 +164,43 @@
   padding-bottom: 20px;
 }
 
-.result-title {
-  font-size: 24px;
-  color: var(--main-purple);
-  font-weight: 700;
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.feedback-group {
+  display: flex;
+  gap: 10px;
+}
+
+.feedback-btn {
+  background: white;
+  border: 1px solid var(--border-color);
+  padding: 8px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.2s;
+}
+
+.feedback-btn:hover {
+  background: var(--bg-light-gray);
+  transform: translateY(-2px);
+}
+
+.feedback-btn.active {
+  background: var(--main-purple);
+  border-color: var(--main-purple);
+  color: white;
+}
+
+.copy-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text-gray);
 }
 
 .card-body {
@@ -113,11 +208,6 @@
   line-height: 1.8;
   color: #444;
   text-align: left;
-  min-height: 300px;
-}
-
-.card-body p {
-  margin-bottom: 15px;
 }
 
 .revision-section {
@@ -139,7 +229,6 @@
   background: transparent;
   border: none;
   padding: 10px;
-  font-size: 15px;
 }
 
 .revision-input-group button {
@@ -180,5 +269,4 @@
   border-radius: 50px;
   font-weight: 700;
   cursor: pointer;
-  margin-top: 20px;
 }

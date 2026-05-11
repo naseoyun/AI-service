@@ -79,6 +79,7 @@
   transform: scale(1.1);
 }
 
+/* Result Styles */
 .result-content {
   max-width: 1000px;
   margin: 0 auto;
@@ -100,6 +101,40 @@
   margin-bottom: 30px;
   border-bottom: 2px solid var(--bg-light-gray);
   padding-bottom: 20px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.feedback-btns {
+  display: flex;
+  gap: 8px;
+}
+
+.fb-btn {
+  background: #f8f9fa;
+  border: 1px solid var(--border-color);
+  padding: 5px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s;
+}
+
+.fb-btn.active {
+  background: var(--main-purple);
+  color: white;
+  border-color: var(--main-purple);
+}
+
+.copy-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text-gray);
 }
 
 .result-title {
@@ -139,7 +174,6 @@
   background: transparent;
   border: none;
   padding: 10px;
-  font-size: 15px;
 }
 
 .revision-input-group button {
@@ -180,5 +214,4 @@
   border-radius: 50px;
   font-weight: 700;
   cursor: pointer;
-  margin-top: 20px;
 }

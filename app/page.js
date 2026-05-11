@@ -15,6 +15,14 @@ export default function Home() {
     }
   };
 
+  const handleTabClick = (tab) => {
+    if (tab.id === 'market') {
+      router.push('/labor-market');
+      return;
+    }
+    setActiveTab(tab.id);
+  };
+
   return (
     <main className="home-content">
       <section className="home-top-section">

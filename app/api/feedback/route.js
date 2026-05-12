@@ -4,25 +4,22 @@ import path from 'path';
 
 export async function POST(req) {
   try {
-    const { type, url, resultText } = await req.json();
+    const { type, resultText, url } = await req.json();
     
     const feedbackData = {
       timestamp: new Date().toISOString(),
       type,
       url,
-      preview: resultText ? resultText.substring(0, 100) : ''
+      preview: resultText.substring(0, 100) + '...'
     };
 
+    // 로컬 파일에 저장 (DB 대신)
     const filePath = path.join(process.cwd(), 'feedback.json');
     let existingData = [];
     
     if (fs.existsSync(filePath)) {
-      try {
-        const fileContent = fs.readFileSync(filePath, 'utf8');
-        existingData = JSON.parse(fileContent);
-      } catch (e) {
-        existingData = [];
-      }
+      const fileContent = fs.readFileSync(filePath, 'utf8');
+      existingData = JSON.parse(fileContent);
     }
     
     existingData.push(feedbackData);
@@ -30,7 +27,7 @@ export async function POST(req) {
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('Feedback Save Error:', error);
-    return NextResponse.json({ error: '피드백 저장 실패' }, { status: 500 });
+    console.error('Feedback error:', error);
+    return NextResponse.json({ error: '피드백 저장 중 오류 발생' }, { status: 500 });
   }
 }

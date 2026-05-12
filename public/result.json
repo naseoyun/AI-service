@@ -1,75 +1,130 @@
 {
-  "updated_at": "2026-05-11 22:14",
+  "updated_at": "2026-05-12 20:49",
   "industries": [
     {
-      "industry": "금융권",
-      "score": 55.2,
-      "trend": "보통",
-      "emoji": "🟡",
+      "industry": "IT_HW",
+      "score": 67.9,
+      "trend": "긍정적",
+      "emoji": "🟢",
       "news_count": 20,
       "positive_pct": 15.0,
       "neutral_pct": 85.0,
       "negative_pct": 0.0,
-      "stock_change": "+0.0%",
+      "stock_change": "+57.62%",
       "hero_news": {
-        "title": "[경제소식] 하나금융그룹, 서울시수의사회와 상생협력 MOU",
-        "link": "http://www.4th.kr/news/articleView.html?idxno=2111295",
-        "date": "2026-05-11",
+        "title": "시그마인텔 \"中패널업체, 삼성 갤럭시S 일반형 OLED 공급 노린다\"",
+        "link": "https://zdnet.co.kr/view/?no=20260508220338",
+        "date": "2026-05-12",
         "sentiment": "positive",
         "sentiment_score": 100.0
       },
       "top5_news": [
         {
           "rank": 1,
-          "title": "HD현대, 국내 최초 미 해군연구청 함정 연구과제 2건 수주",
-          "link": "https://www.sedaily.com/article/20037317?ref=naver",
-          "date": "2026-05-11",
+          "title": "\"중국은 라인 늘리고 삼성은 박사 뽑는다\"…삼성디스플레이, OLED 초격차...",
+          "link": "https://www.upkoreanews.kr/news/articleView.html?idxno=98389",
+          "date": "2026-05-12",
           "sentiment": "positive"
         },
         {
           "rank": 2,
-          "title": "[경제소식] 하나증권, 전북창조경제혁신센터와 지역 스타트업 육성 MOU",
-          "link": "http://www.4th.kr/news/articleView.html?idxno=2111479",
-          "date": "2026-05-11",
+          "title": "LG디스플레이, 美LA 현지서 채용 나서 \"글로벌 이공계 우수인재 확보\"",
+          "link": "https://www.newsis.com/view/NISX20260510_0003623247",
+          "date": "2026-05-12",
           "sentiment": "positive"
         },
         {
           "rank": 3,
-          "title": "신한은행-신한자산운용-효성중공업, 글로벌 신재생에너지 사업 협력 확...",
-          "link": "https://www.rcast.co.kr/news/articleView.html?idxno=30733",
-          "date": "2026-05-11",
+          "title": "“의치한약수냐, 반도체냐”…흔들리는 이과 최상위권 공식 | 삼성전자...",
+          "link": "http://monthly.chosun.com/client/mdaily/daily_view.asp?idx=24337&Newsnumb=20260524337",
+          "date": "2026-05-12",
           "sentiment": "neutral"
         },
         {
           "rank": 4,
-          "title": "금융권, 상품 출시-일자리 창출-수수료 면제 등 취약계층 지원 나서",
-          "link": "http://www.wsobi.com/news/articleView.html?idxno=311573",
-          "date": "2026-05-11",
+          "title": "\"스마트공장 전환으로 기업이미지 개선 … 우수 인재 확보 쉬워져\"",
+          "link": "https://www.mk.co.kr/article/12044996",
+          "date": "2026-05-12",
           "sentiment": "neutral"
         },
         {
           "rank": 5,
-          "title": "[은행 &amp; Now] KB국민은행, 장항준·김은희 신규 모델 선정 등",
-          "link": "https://www.ebn.co.kr/news/articleView.html?idxno=1708270",
-          "date": "2026-05-11",
+          "title": "[아침을 열며]반도체 잔칫상에 정규직 수저만 놓을 건가",
+          "link": "https://www.khan.co.kr/article/202605102007025",
+          "date": "2026-05-12",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "industry": "IT_SW",
+      "score": 51.6,
+      "trend": "보통",
+      "emoji": "🟡",
+      "news_count": 20,
+      "positive_pct": 15.0,
+      "neutral_pct": 85.0,
+      "negative_pct": 0.0,
+      "stock_change": "-2.42%",
+      "hero_news": {
+        "title": "게임 퍼블리셔 변신한 토스…‘앱인토스’ 4000개 돌파",
+        "link": "http://www.edaily.co.kr/news/newspath.asp?newsid=03827766645447936",
+        "date": "2026-05-12",
+        "sentiment": "positive",
+        "sentiment_score": 99.9
+      },
+      "top5_news": [
+        {
+          "rank": 1,
+          "title": "롯데쇼핑, 체질 개선 통했다…영업이익 70% 급등, 유통명가 화려한 부활",
+          "link": "https://www.ziksir.com/news/articleView.html?idxno=133603",
+          "date": "2026-05-12",
+          "sentiment": "positive"
+        },
+        {
+          "rank": 2,
+          "title": "\"日 AI·디지털 전환 수요 잡아라\"…K스타트업들 공략 확대",
+          "link": "http://www.edaily.co.kr/news/newspath.asp?newsid=02007366645447608",
+          "date": "2026-05-12",
+          "sentiment": "positive"
+        },
+        {
+          "rank": 3,
+          "title": "\"구글·애플 30% 통행세 더는 못 버틴다\"…판교 집결하는 게임업계·시민...",
+          "link": "https://www.greened.kr/news/articleView.html?idxno=340532",
+          "date": "2026-05-12",
+          "sentiment": "neutral"
+        },
+        {
+          "rank": 4,
+          "title": "아산시, 고유가 피해지원금 지급 적극대처",
+          "link": "https://www.viva100.com/article/20260512500003",
+          "date": "2026-05-12",
+          "sentiment": "neutral"
+        },
+        {
+          "rank": 5,
+          "title": "[IT플랫폼리더 열전④] 원티드랩 이복기 \"향후 10년, AX솔루션 기업 재탄...",
+          "link": "https://www.shinailbo.co.kr/news/articleView.html?idxno=5019252",
+          "date": "2026-05-12",
           "sentiment": "neutral"
         }
       ]
     },
     {
       "industry": "엔터",
-      "score": 53.5,
+      "score": 51.2,
       "trend": "보통",
       "emoji": "🟡",
       "news_count": 20,
-      "positive_pct": 10.0,
-      "neutral_pct": 90.0,
+      "positive_pct": 15.0,
+      "neutral_pct": 85.0,
       "negative_pct": 0.0,
-      "stock_change": "+0.0%",
+      "stock_change": "-2.71%",
       "hero_news": {
         "title": "[오늘의 게임·IT 소식] 컴투스 '제우스: 오만의 신', 티저 사이트 오픈...",
         "link": "https://dealsite.co.kr/articles/161302",
-        "date": "2026-05-11",
+        "date": "2026-05-12",
         "sentiment": "positive",
         "sentiment_score": 100.0
       },
@@ -78,163 +133,108 @@
           "rank": 1,
           "title": "한화투자 \"SM엔터 올해부터 수익성 상승 전망, 국내 신인 보이그룹 데뷔...",
           "link": "https://www.businesspost.co.kr/BP?command=article_view&num=427825",
-          "date": "2026-05-11",
+          "date": "2026-05-12",
           "sentiment": "positive"
         },
         {
           "rank": 2,
+          "title": "‘백상 여신’ 이수지, 제작진에 100만원대 명품백 쾌척 'FLEX'",
+          "link": "https://www.sportschosun.com/entertainment/2026-05-12/202605120100067580004457",
+          "date": "2026-05-12",
+          "sentiment": "positive"
+        },
+        {
+          "rank": 3,
           "title": "방송사 토론회 배제에 개혁신당 정이한 단식 4일째",
           "link": "https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003233064&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news",
-          "date": "2026-05-11",
-          "sentiment": "neutral"
-        },
-        {
-          "rank": 3,
-          "title": "[영상] 폴킴·퀸가비, DJ 도전…오늘부터 청취자들과 1일",
-          "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8557764&ref=A",
-          "date": "2026-05-11",
+          "date": "2026-05-12",
           "sentiment": "neutral"
         },
         {
           "rank": 4,
-          "title": "[뉴스+] 임성무 \"전교조 활동하다 해직된 사유 들어보시면···교육감 되...",
-          "link": "https://dgmbc.com/NewsArticle/838959",
-          "date": "2026-05-11",
+          "title": "양상국 “유재석·김해준·장도연에 미안…원래 여자친구에게 잘해” 태...",
+          "link": "https://isplus.com/article/view/isp202605120138",
+          "date": "2026-05-12",
           "sentiment": "neutral"
         },
         {
           "rank": 5,
-          "title": "‘말자쇼’ 김대호 “연애, 안 한 지 10년이 됐다”",
-          "link": "https://sports.khan.co.kr/article/202605112134003?pt=nv",
-          "date": "2026-05-11",
+          "title": "진정원 경남FC 단장 사직...박완수 후보 캠프로",
+          "link": "http://www.knnews.co.kr/news/articleView.php?idxno=1541415",
+          "date": "2026-05-12",
           "sentiment": "neutral"
         }
       ]
     },
     {
-      "industry": "IT_SW",
-      "score": 53.4,
+      "industry": "금융권",
+      "score": 49.9,
       "trend": "보통",
       "emoji": "🟡",
       "news_count": 20,
-      "positive_pct": 10.0,
-      "neutral_pct": 85.0,
-      "negative_pct": 5.0,
-      "stock_change": "+0.0%",
-      "hero_news": {
-        "title": "게임 퍼블리셔 변신한 토스…‘앱인토스’ 4000개 돌파",
-        "link": "http://www.edaily.co.kr/news/newspath.asp?newsid=03827766645447936",
-        "date": "2026-05-11",
-        "sentiment": "positive",
-        "sentiment_score": 99.9
-      },
-      "top5_news": [
-        {
-          "rank": 1,
-          "title": "\"日 AI·디지털 전환 수요 잡아라\"…K스타트업들 공략 확대",
-          "link": "http://www.edaily.co.kr/news/newspath.asp?newsid=02007366645447608",
-          "date": "2026-05-11",
-          "sentiment": "positive"
-        },
-        {
-          "rank": 2,
-          "title": "해킹보다 무서운 내부자 보복, 쿠팡은 퇴사자 서명키 악용...미국은 해고...",
-          "link": "https://www.dailysecu.com/news/articleView.html?idxno=206677",
-          "date": "2026-05-11",
-          "sentiment": "negative"
-        },
-        {
-          "rank": 3,
-          "title": "“관공서마저 쿠팡 이용…온라인 플랫폼에 골목상권 붕괴”",
-          "link": "http://www.kwangju.co.kr/article.php?aid=1778490000798834005",
-          "date": "2026-05-11",
-          "sentiment": "neutral"
-        },
-        {
-          "rank": 4,
-          "title": "롯데쇼핑, 재무통 앞세워 체질 개선···하반기 오카도 시험대",
-          "link": "https://www.sisajournal-e.com/news/articleView.html?idxno=421032",
-          "date": "2026-05-11",
-          "sentiment": "neutral"
-        },
-        {
-          "rank": 5,
-          "title": "코스피 급등에 취업수험서도 '꿈틀'…반도체·공무원 수요 급증",
-          "link": "https://www.nocutnews.co.kr/news/6514635?utm_source=naver&utm_medium=article&utm_campaign=20260510105841",
-          "date": "2026-05-11",
-          "sentiment": "neutral"
-        }
-      ]
-    },
-    {
-      "industry": "IT_HW",
-      "score": 52.7,
-      "trend": "보통",
-      "emoji": "🟡",
-      "news_count": 20,
-      "positive_pct": 20.0,
+      "positive_pct": 15.0,
       "neutral_pct": 75.0,
-      "negative_pct": 5.0,
-      "stock_change": "+0.0%",
+      "negative_pct": 10.0,
+      "stock_change": "-1.77%",
       "hero_news": {
-        "title": "시그마인텔 \"中패널업체, 삼성 갤럭시S 일반형 OLED 공급 노린다\"",
-        "link": "https://zdnet.co.kr/view/?no=20260508220338",
-        "date": "2026-05-11",
+        "title": "기업들, 장애인 지원-인재 양성-생태 보호 등 사회공헌 전개",
+        "link": "http://www.wsobi.com/news/articleView.html?idxno=311725",
+        "date": "2026-05-12",
         "sentiment": "positive",
-        "sentiment_score": 100.0
+        "sentiment_score": 104.9
       },
       "top5_news": [
         {
           "rank": 1,
-          "title": "8천원→19만원 ‘2400% 급등’…한 때 삼성전자보다 잘 나갔는데 “월급...",
-          "link": "https://biz.heraldcorp.com/article/10735454?ref=naver",
-          "date": "2026-05-11",
+          "title": "[경제소식] 하나금융그룹, 서울시수의사회와 상생협력 MOU",
+          "link": "http://www.4th.kr/news/articleView.html?idxno=2111295",
+          "date": "2026-05-12",
           "sentiment": "positive"
         },
         {
           "rank": 2,
-          "title": "LG디스플레이, 美LA 현지서 채용 나서 \"글로벌 이공계 우수인재 확보\"",
-          "link": "https://www.newsis.com/view/NISX20260510_0003623247",
-          "date": "2026-05-11",
+          "title": "[경제소식] 하나증권, 전북창조경제혁신센터와 지역 스타트업 육성 MOU",
+          "link": "http://www.4th.kr/news/articleView.html?idxno=2111479",
+          "date": "2026-05-12",
           "sentiment": "positive"
         },
         {
           "rank": 3,
-          "title": "삼성도 뛰어든 제조 로봇 전쟁...아틀라스 대항마 나오나",
-          "link": "https://www.etoday.co.kr/news/view/2582737",
-          "date": "2026-05-11",
-          "sentiment": "positive"
+          "title": "신한은행-신한자산운용-효성중공업, 글로벌 신재생에너지 사업 협력 확...",
+          "link": "https://www.rcast.co.kr/news/articleView.html?idxno=30733",
+          "date": "2026-05-12",
+          "sentiment": "neutral"
         },
         {
           "rank": 4,
-          "title": "[게임뉴스] 메이크 드라마 : MAD 및 카카오게임즈 소식 외",
-          "link": "https://www.gamevu.co.kr/news/articleView.html?idxno=57800",
-          "date": "2026-05-11",
+          "title": "[경인방송 경제뉴스] 하나은행, 코트라·무보와 수출기업 해외진출 지원",
+          "link": "https://news.ifm.kr/news/articleView.html?idxno=470794",
+          "date": "2026-05-12",
           "sentiment": "neutral"
         },
         {
           "rank": 5,
-          "title": "‘삼전닉스’ 주도 성장, 이익 원청 독식은 ‘지속 가능성’에 한계··...",
-          "link": "https://www.khan.co.kr/article/202605112107005",
-          "date": "2026-05-11",
-          "sentiment": "neutral"
+          "title": "[더벨][Tax Rader] 국세청, 하나금융지주·하나은행 특별 세무조사 착수",
+          "link": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202605081058250000104570",
+          "date": "2026-05-12",
+          "sentiment": "negative"
         }
       ]
     },
     {
       "industry": "바이오",
-      "score": 43.9,
+      "score": 43.2,
       "trend": "보통",
       "emoji": "🟡",
       "news_count": 20,
       "positive_pct": 10.0,
-      "neutral_pct": 55.0,
-      "negative_pct": 35.0,
-      "stock_change": "+0.0%",
+      "neutral_pct": 70.0,
+      "negative_pct": 20.0,
+      "stock_change": "-3.94%",
       "hero_news": {
         "title": "[제약+] GC녹십자, 美 라레도 혈장센터 FDA 허가 획득 外",
         "link": "https://news.dealsitetv.com/articles/168470",
-        "date": "2026-05-11",
+        "date": "2026-05-12",
         "sentiment": "positive",
         "sentiment_score": 100.0
       },
@@ -243,35 +243,35 @@
           "rank": 1,
           "title": "휴젤, 북남미 매출 317% 급증…'레티보' 상업화 효과",
           "link": "https://www.fetv.co.kr/news/articleView.html?idxno=301961",
-          "date": "2026-05-11",
+          "date": "2026-05-12",
           "sentiment": "positive"
         },
         {
           "rank": 2,
           "title": "“순혈주의는 옛말”…제약업계, 지금은 ‘외부 수혈’ 전성시대",
           "link": "https://biz.chosun.com/science-chosun/bio/2026/04/07/XIMGMHPH3VGJXAAMX4G6JX4UVY/?utm_source=naver&utm_medium=original&utm_campaign=biz",
-          "date": "2026-05-11",
+          "date": "2026-05-12",
           "sentiment": "negative"
         },
         {
           "rank": 3,
           "title": "[제약+] 셀트리온, 'CT-P71' 美 FDA 패스트트랙 지정 外",
           "link": "https://dealsite.co.kr/articles/159926",
-          "date": "2026-05-11",
+          "date": "2026-05-12",
           "sentiment": "negative"
         },
         {
           "rank": 4,
           "title": "[시대리포트]'업계 최고 대우' 삼성바이오 파업, 권리인가 탐욕인가",
           "link": "https://www.sidae.com/article/2026050313041615163",
-          "date": "2026-05-11",
+          "date": "2026-05-12",
           "sentiment": "negative"
         },
         {
           "rank": 5,
-          "title": "신약 심사 240일로 단축…경쟁력 기대·전문성 우려 교차",
-          "link": "https://news.tf.co.kr/read/economy/2315995.htm",
-          "date": "2026-05-11",
+          "title": "[노조 이기주의②] '철밥통'이 키운 괴물…한국 경제 '등골 브레이커'",
+          "link": "https://www.mediapen.com/news/view/1098281",
+          "date": "2026-05-12",
           "sentiment": "neutral"
         }
       ]

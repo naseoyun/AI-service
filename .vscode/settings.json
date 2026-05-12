@@ -1,0 +1,8 @@
+{
+    "python.analysis.extraPaths": [
+        "./app/employee/harassment/employee_harrassment_",
+        "./app/employee/harassment/employee_harrassment_",
+        "./app/employee/harassment/employee_harrassment_"
+    ],
+    "python-envs.defaultEnvManager": "ms-python.python:system"
+}

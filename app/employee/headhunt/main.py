@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException, Response, status
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.models import (
+from .models import (
     HeadhuntOffer,
     HeadhuntOfferCreate,
     HeadhuntOfferUpdate,
@@ -9,8 +9,8 @@ from app.models import (
     PipelineResponse,
     StageUpdateRequest,
 )
-from app.repository import OfferRepository
-from app.service import build_pipeline, to_offer_summary
+from .repository import OfferRepository
+from .service import build_pipeline, to_offer_summary
 
 app = FastAPI(
     title="Smart Headhunt Backend",

@@ -1,4 +1,4 @@
-from app.models import (
+from .models import (
     HeadhuntOffer,
     InterviewStage,
     OfferStatus,
@@ -6,7 +6,7 @@ from app.models import (
     PipelineColumn,
     PipelineResponse,
 )
-from app.stage_flow import STAGE_LABELS, STAGE_ORDER, progress_percent
+from .stage_flow import STAGE_LABELS, STAGE_ORDER, progress_percent
 
 
 def to_offer_summary(offer: HeadhuntOffer) -> OfferSummary:

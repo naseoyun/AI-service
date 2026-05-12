@@ -1,15 +1,15 @@
 from datetime import datetime
 
-from app.crawlers import Portal1365Crawler, VmsCrawler
-from app.models import (
+from .crawlers import Portal1365Crawler, VmsCrawler
+from .models import (
     OpportunityListResponse,
     OpportunityQuery,
     RefreshResponse,
     VolunteerOpportunity,
     VolunteerPortal,
 )
-from app.sample_data import sample_opportunities
-from app.skill_extractor import SKILL_KEYWORDS
+from .sample_data import sample_opportunities
+from .skill_extractor import SKILL_KEYWORDS
 
 
 class OpportunityService:

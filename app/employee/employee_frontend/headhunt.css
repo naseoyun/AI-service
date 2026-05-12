@@ -1,0 +1,165 @@
+:root {
+  --ink: #070707;
+  --muted: #6f747c;
+  --soft: #f1f1f1;
+  --paper: #fff;
+  --font: Inter, Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: var(--font);
+}
+
+.headhunt-shell {
+  width: min(970px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 66px 0 88px;
+}
+
+.headhunt-title {
+  margin: 0;
+  text-align: center;
+  font-size: clamp(34px, 6vw, 48px);
+  line-height: 1.08;
+  font-weight: 850;
+}
+
+.headhunt-subtitle {
+  margin: 22px 0 82px;
+  text-align: center;
+  color: var(--muted);
+  font-weight: 650;
+}
+
+.headhunt-hero-art {
+  height: 320px;
+  border-radius: 6px;
+  background:
+    radial-gradient(circle at 50% 50%, #eff3a2, transparent 24%),
+    linear-gradient(90deg, #f5c4dd 0%, #f7d2e3 30%, #e7f1b7 54%, #009a92 100%);
+}
+
+.headhunt-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 46px;
+  min-height: 120px;
+  color: #9a9a9a;
+  font-weight: 850;
+}
+
+.headhunt-logo {
+  cursor: pointer;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+}
+
+.headhunt-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 56px;
+  margin: 54px 0;
+}
+
+.headhunt-feature.reverse {
+  margin-top: 74px;
+}
+
+.headhunt-copy h2 {
+  margin: 0 0 18px;
+  font-size: 26px;
+  line-height: 1.1;
+}
+
+.headhunt-copy p {
+  margin: 0 0 8px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.headhunt-cta {
+  margin-top: 24px;
+  border: 0;
+  border-radius: 5px;
+  padding: 12px 16px;
+  color: #fff;
+  background: #000;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.headhunt-art {
+  height: 260px;
+  border-radius: 7px;
+}
+
+.headhunt-art.pink {
+  background: radial-gradient(circle at 40% 50%, #fff, transparent 20%), repeating-radial-gradient(circle at 65% 35%, #f778b8 0 2px, transparent 2px 6px), #ffc5dc;
+}
+
+.headhunt-art.blur {
+  background: radial-gradient(circle at 50% 50%, #f173ad, transparent 24%), #c9badd;
+}
+
+.headhunt-grid {
+  margin-top: 114px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.headhunt-card {
+  min-height: 200px;
+  border: 0;
+  border-radius: 10px;
+  padding: 28px;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+  background: var(--soft);
+  overflow: hidden;
+}
+
+.headhunt-card h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.headhunt-card p {
+  margin: 0;
+  color: #555;
+  line-height: 1.45;
+}
+
+.headhunt-card.tall {
+  grid-row: span 2;
+  min-height: 430px;
+  background:
+    radial-gradient(circle at 50% 55%, #fff 0 7%, transparent 8%),
+    radial-gradient(circle at 50% 50%, #a6a0cd 0 20%, transparent 21%),
+    linear-gradient(180deg, transparent 0 52%, #236fbf 53% 72%, #9aa23b 73% 100%),
+    #eeeeee;
+}
+
+@media (max-width: 780px) {
+  .headhunt-feature,
+  .headhunt-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .headhunt-feature.reverse .headhunt-art {
+    order: 0;
+  }
+}

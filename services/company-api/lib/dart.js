@@ -85,3 +85,18 @@ export function extractKeyFinancials(statementList) {
     rawList: statementList.slice(0, 30),
   };
 }
+
+// ✅ 추가: 직원현황 조회
+export async function fetchEmployeeStatus(corpCode, bsnsYear = '2023', reprtCode = '11011') {
+  const url = new URL(`${BASE}/empSttus.json`);
+  url.searchParams.set('crtfc_key', DART_KEY);
+  url.searchParams.set('corp_code', corpCode);
+  url.searchParams.set('bsns_year', bsnsYear);
+  url.searchParams.set('reprt_code', reprtCode);
+
+  const res = await fetch(url.toString());
+  const data = await res.json();
+
+  if (data.status !== '000') return null;
+  return data.list || [];
+}

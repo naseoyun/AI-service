@@ -1,0 +1,147 @@
+{
+  "updated_at": "2026-05-07 06:00",
+  "industries": [
+    {
+      "industry": "IT_SW",
+      "score": 75.0,
+      "trend": "긍정적",
+      "emoji": "🟢",
+      "news_count": 20,
+      "positive_pct": 75.0,
+      "neutral_pct": 15.0,
+      "negative_pct": 10.0,
+      "stock_change": "+3.2%",
+      "hero_news": {
+        "title": "네이버·카카오, 상반기 개발자 대규모 채용 예고",
+        "link": "#",
+        "date": "2026-05-07",
+        "sentiment": "positive",
+        "sentiment_score": 91.0
+      },
+      "top5_news": [
+        {
+          "rank": 1,
+          "title": "토스, 전 직군 상시채용 진행",
+          "link": "#",
+          "date": "2026-05-07",
+          "sentiment": "positive"
+        },
+        {
+          "rank": 2,
+          "title": "카카오뱅크 핀테크 개발자 50명 채용",
+          "link": "#",
+          "date": "2026-05-06",
+          "sentiment": "positive"
+        }
+      ]
+    },
+    {
+      "industry": "바이오",
+      "score": 65.0,
+      "trend": "긍정적",
+      "emoji": "🟢",
+      "news_count": 20,
+      "positive_pct": 65.0,
+      "neutral_pct": 20.0,
+      "negative_pct": 15.0,
+      "stock_change": "+1.8%",
+      "hero_news": {
+        "title": "삼성바이오로직스, 신입 연구원 대규모 채용",
+        "link": "#",
+        "date": "2026-05-07",
+        "sentiment": "positive",
+        "sentiment_score": 85.0
+      },
+      "top5_news": [
+        {
+          "rank": 1,
+          "title": "제약업계 올해 채용 확대 전망",
+          "link": "#",
+          "date": "2026-05-07",
+          "sentiment": "positive"
+        }
+      ]
+    },
+    {
+      "industry": "금융권",
+      "score": 50.0,
+      "trend": "보통",
+      "emoji": "🟡",
+      "news_count": 20,
+      "positive_pct": 50.0,
+      "neutral_pct": 30.0,
+      "negative_pct": 20.0,
+      "stock_change": "-0.4%",
+      "hero_news": {
+        "title": "KB국민은행 하반기 공채 일정 발표",
+        "link": "#",
+        "date": "2026-05-07",
+        "sentiment": "positive",
+        "sentiment_score": 72.0
+      },
+      "top5_news": [
+        {
+          "rank": 1,
+          "title": "신한은행 디지털 직군 채용 확대",
+          "link": "#",
+          "date": "2026-05-06",
+          "sentiment": "positive"
+        }
+      ]
+    },
+    {
+      "industry": "엔터",
+      "score": 45.0,
+      "trend": "보통",
+      "emoji": "🟡",
+      "news_count": 20,
+      "positive_pct": 45.0,
+      "neutral_pct": 30.0,
+      "negative_pct": 25.0,
+      "stock_change": "-1.1%",
+      "hero_news": {
+        "title": "HYBE 콘텐츠 제작 인력 채용 공고",
+        "link": "#",
+        "date": "2026-05-07",
+        "sentiment": "positive",
+        "sentiment_score": 68.0
+      },
+      "top5_news": [
+        {
+          "rank": 1,
+          "title": "OTT 플랫폼 콘텐츠 PD 채용 증가",
+          "link": "#",
+          "date": "2026-05-06",
+          "sentiment": "positive"
+        }
+      ]
+    },
+    {
+      "industry": "IT_HW",
+      "score": 35.0,
+      "trend": "부정적",
+      "emoji": "🔴",
+      "news_count": 20,
+      "positive_pct": 35.0,
+      "neutral_pct": 25.0,
+      "negative_pct": 40.0,
+      "stock_change": "-2.7%",
+      "hero_news": {
+        "title": "반도체 업황 부진으로 채용 축소 우려",
+        "link": "#",
+        "date": "2026-05-07",
+        "sentiment": "negative",
+        "sentiment_score": 28.0
+      },
+      "top5_news": [
+        {
+          "rank": 1,
+          "title": "SK하이닉스 하반기 채용 규모 미정",
+          "link": "#",
+          "date": "2026-05-06",
+          "sentiment": "negative"
+        }
+      ]
+    }
+  ]
+}

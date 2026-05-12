@@ -7,15 +7,15 @@ function ResumeContent() {
   const searchParams = useSearchParams();
   const [url, setUrl] = useState('');
   const [chatMessages, setChatMessages] = useState([
-    { role: 'assistant', content: '안녕하세요! 자소서에 담고 싶은 특별한 경험이 있나요? 저와 대화하며 경험을 구체화해 보세요. 준비가 되시면 상단의 분석 시작 버튼을 눌러주세요!' }
+    { role: 'assistant', content: '안녕하세요! 여러분의 경험을 자소서로 만들어 드릴게요. 어떤 경험을 자소서에 녹여내고 싶으신가요? 구체적으로 말씀해 주시면 더 좋은 자소서가 나옵니다!' }
   ]);
   const [userInput, setUserInput] = useState('');
-  const [step, setStep] = useState('input');
+  const [step, setStep] = useState('input'); // 'input' | 'loading' | 'result' | 'error'
   const [resultText, setResultText] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
   const [revisionPrompt, setRevisionPrompt] = useState('');
   const [isRevising, setIsRevising] = useState(false);
-  const [isTyping, setIsTyping] = useState(false);
+  const [feedbackStatus, setFeedbackStatus] = useState(null); // 'like' | 'dislike' | null
 
   const chatEndRef = useRef(null);
 
@@ -29,41 +29,32 @@ function ResumeContent() {
   }, [chatMessages]);
 
   const handleSendMessage = async () => {
-    if (!userInput.trim() || isTyping) return;
+    if (!userInput.trim()) return;
 
-    const userMsg = { role: 'user', content: userInput };
-    const newMessages = [...chatMessages, userMsg];
+    const newMessages = [...chatMessages, { role: 'user', content: userInput }];
     setChatMessages(newMessages);
     setUserInput('');
-    setIsTyping(true);
 
-    try {
-      const res = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: newMessages }),
-      });
-      const data = await res.json();
-      if (res.ok) {
-        setChatMessages(prev => [...prev, { role: 'assistant', content: data.message }]);
-      }
-    } catch (err) {
-      console.error('Chat error:', err);
-    } finally {
-      setIsTyping(false);
-    }
+    // AI의 간단한 리액션 (나중에 자소서 생성 시 이 대화 내용이 모두 포함됨)
+    setTimeout(() => {
+      setChatMessages(prev => [...prev, { role: 'assistant', content: '좋은 경험이네요! 더 덧붙일 내용이 있나요? 없으시다면 상단의 분석 시작 버튼을 눌러주세요.' }]);
+    }, 500);
   };
 
   const handleAnalyze = async () => {
     setStep('loading');
     setErrorMsg('');
+    setFeedbackStatus(null);
 
     try {
-      const conversation = chatMessages.map(m => `${m.role === 'user' ? '사용자' : 'AI'}: ${m.content}`).join('\n');
       const res = await fetch('/api/analyze', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ url, additionalInfo: conversation }),
+        body: JSON.stringify({ 
+          url, 
+          // 대화 내용을 모두 합쳐서 AI에게 전달
+          additionalInfo: chatMessages.map(m => `${m.role === 'user' ? '사용자' : 'AI'}: ${m.content}`).join('\n')
+        }),
       });
 
       const data = await res.json();
@@ -74,6 +65,20 @@ function ResumeContent() {
     } catch (err) {
       setErrorMsg(err.message);
       setStep('error');
+    }
+  };
+
+  const handleFeedback = async (type) => {
+    setFeedbackStatus(type);
+    try {
+      await fetch('/api/feedback', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type, resultText, url }),
+      });
+      alert('피드백을 보내주셔서 감사합니다!');
+    } catch (err) {
+      console.error('Feedback failed:', err);
     }
   };
 
@@ -110,7 +115,7 @@ function ResumeContent() {
       {step === 'input' && (
         <main className="resume-content">
           <div className="resume-titles">
-            <h2>여러분의 포트폴리오를 <strong>AI</strong>가 자소서로 자동 생성합니다!</h2>
+            <h2>여러분의 모아둔 포트폴리오를 <strong>AI</strong>가 자소서로 자동 생성합니다!</h2>
             <p>블로그, <strong>URL</strong>로 <strong>30초</strong>만에 자소서 생성하세요!</p>
           </div>
 
@@ -121,29 +126,30 @@ function ResumeContent() {
                 type="text"
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
-                placeholder="blog.naver.com/... 주소를 입력하세요"
+                placeholder="관련 블로그나 포트폴리오 주소를 입력하세요 (선택)"
               />
-              <button className="analyze-start-btn" onClick={handleAnalyze}>✨ 분석 시작</button>
+              <button className="analyze-start-btn" onClick={handleAnalyze}>분석 시작</button>
             </div>
 
-            <div className="chat-area-container">
-              <div className="chat-history">
-                {chatMessages.map((m, i) => (
-                  <div key={i} className={`chat-bubble ${m.role}`}>{m.content}</div>
+            <div className="chat-interface-container">
+              <div className="chat-window">
+                {chatMessages.map((msg, idx) => (
+                  <div key={idx} className={`chat-bubble ${msg.role}`}>
+                    {msg.content}
+                  </div>
                 ))}
-                {isTyping && <div className="chat-bubble assistant typing">...</div>}
                 <div ref={chatEndRef} />
               </div>
-              <div className="resume-input-pill bottom-pill chat-input">
+              
+              <div className="resume-input-pill bottom-pill chat-input-pill">
                 <input
                   type="text"
-                  placeholder={isTyping ? "AI가 답변을 생각 중입니다..." : "경험을 말씀해 주세요..."}
+                  placeholder="AI와 대화하며 경험을 추출해 보세요..."
                   value={userInput}
                   onChange={(e) => setUserInput(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()}
-                  disabled={isTyping}
                 />
-                <button className="submit-up-btn" onClick={handleSendMessage} disabled={isTyping}>
+                <button className="submit-up-btn" onClick={handleSendMessage}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
                     <line x1="12" y1="19" x2="12" y2="5" /><polyline points="5 12 12 5 19 12" />
                   </svg>
@@ -157,7 +163,7 @@ function ResumeContent() {
       {step === 'loading' && (
         <div className="loading-container">
           <div className="loader"></div>
-          <p>AI가 대화와 블로그 내용을 종합 분석하여 자소서를 집필 중입니다...</p>
+          <p>AI가 대화 내용과 데이터를 분석하여 최적의 자소서를 생성 중입니다...</p>
         </div>
       )}
 
@@ -166,12 +172,24 @@ function ResumeContent() {
           <div className="result-card">
             <div className="card-header">
               <h3 className="result-title">✨ AI 자소서 분석 결과</h3>
-              <button className="copy-btn" onClick={handleCopy}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
-                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-                </svg>
-              </button>
+              <div className="header-right">
+                <div className="feedback-group">
+                  <button 
+                    className={`feedback-btn like ${feedbackStatus === 'like' ? 'active' : ''}`}
+                    onClick={() => handleFeedback('like')}
+                  >👍</button>
+                  <button 
+                    className={`feedback-btn dislike ${feedbackStatus === 'dislike' ? 'active' : ''}`}
+                    onClick={() => handleFeedback('dislike')}
+                  >👎</button>
+                </div>
+                <button className="copy-btn" onClick={handleCopy}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                  </svg>
+                </button>
+              </div>
             </div>
             <div className="card-body">
               {resultText.split('\n').map((line, i) => (
@@ -183,23 +201,25 @@ function ResumeContent() {
               <div className="revision-input-group">
                 <input 
                   type="text" 
-                  placeholder="수정 요청 사항" 
+                  placeholder="수정하고 싶은 내용을 말씀해주세요..." 
                   value={revisionPrompt}
                   onChange={(e) => setRevisionPrompt(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleRevise()}
                 />
-                <button onClick={handleRevise} disabled={isRevising}>{isRevising ? '...' : '수정'}</button>
+                <button onClick={handleRevise} disabled={isRevising}>
+                  {isRevising ? '...' : '수정'}
+                </button>
               </div>
             </div>
           </div>
-          <button className="retry-btn" onClick={() => setStep('input')}>처음으로</button>
+          <button className="retry-btn" onClick={() => setStep('input')}>처음으로 돌아가기</button>
         </main>
       )}
 
       {step === 'error' && (
         <div className="error-container">
           <p className="error-msg">⚠️ {errorMsg}</p>
-          <button className="retry-btn" onClick={() => setStep('input')}>다시 시도</button>
+          <button className="retry-btn" onClick={() => setStep('input')}>다시 시도하기</button>
         </div>
       )}
     </div>

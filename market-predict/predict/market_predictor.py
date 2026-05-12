@@ -151,7 +151,7 @@ def calculate_final_score(news_score: float, stock_score: float, emp_score: floa
     return {"score": final, "trend": trend, "emoji": emoji}
 
 
-def predict_all(news_df: pd.DataFrame, stock_scores: dict) -> list[dict]:
+def predict_all(news_df: pd.DataFrame, stock_scores: dict, employment_scores: dict) -> list[dict]:
     results = []
 
     for industry in news_df["industry"].unique():

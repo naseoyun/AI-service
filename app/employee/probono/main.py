@@ -1,8 +1,8 @@
 from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.models import OpportunityListResponse, OpportunityQuery, RefreshResponse, VolunteerPortal
-from app.service import OpportunityService
+from .models import OpportunityListResponse, OpportunityQuery, RefreshResponse, VolunteerPortal
+from .service import OpportunityService
 
 app = FastAPI(
     title="Probono Volunteer Backend",

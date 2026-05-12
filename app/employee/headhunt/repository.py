@@ -1,7 +1,7 @@
 from datetime import datetime
 from uuid import uuid4
 
-from app.models import (
+from .models import (
     HeadhuntOffer,
     HeadhuntOfferCreate,
     HeadhuntOfferUpdate,
@@ -9,7 +9,7 @@ from app.models import (
     OfferStatus,
     StageUpdateRequest,
 )
-from app.stage_flow import apply_stage_progress, create_initial_stages
+from .stage_flow import apply_stage_progress, create_initial_stages
 
 
 class OfferRepository:

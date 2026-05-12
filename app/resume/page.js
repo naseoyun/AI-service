@@ -110,7 +110,7 @@ function ResumeContent() {
       {step === 'input' && (
         <main className="resume-content">
           <div className="resume-titles">
-            <h2>여러분의 모아둔 포트폴리오를 <strong>AI</strong>가 자소서로 자동 생성합니다!</h2>
+            <h2>여러분의 포트폴리오를 <strong>AI</strong>가 자소서로 자동 생성합니다!</h2>
             <p>블로그, <strong>URL</strong>로 <strong>30초</strong>만에 자소서 생성하세요!</p>
           </div>
 

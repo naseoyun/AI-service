@@ -1,3 +1,5 @@
+/*메인 화면입니다*/
+
 'use client';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -56,12 +58,12 @@ export default function Home() {
           <div className="url-input-group">
             <input 
               type="text" 
-              placeholder="네이버 블로그 URL 입력" 
+              placeholder="지금 바로 쓰러가기" 
               value={url}
               onChange={(e) => setUrl(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleGoToResume()}
             />
-            <button onClick={handleGoToResume} className="arrow-up-btn">↑</button>
+            <button onClick={handleGoToResume} className="go-btn">go</button>
           </div>
         </div>
       </section>

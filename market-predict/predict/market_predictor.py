@@ -1,11 +1,14 @@
 import pandas as pd
 from transformers import pipeline
 import os
+import openai
+from dotenv import load_dotenv
 
+load_dotenv()
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# KR-FinBert 감성 분석 모델 로드 (최초 실행 시 ~500MB 다운로드)
 print("[모델 로드] KR-FinBert-SC ...")
 sentiment_model = pipeline(
     "sentiment-analysis",
@@ -15,11 +18,24 @@ sentiment_model = pipeline(
 )
 
 
+def summarize_article(title: str) -> str:
+    """기사 제목을 AI가 3줄로 요약"""
+    try:
+        response = openai.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": "당신은 채용 시장 전문가입니다. 기사 제목을 보고 채용 시장 관점에서 2~3문장으로 요약해주세요."},
+                {"role": "user", "content": f"기사 제목: {title}"}
+            ],
+            max_tokens=200
+        )
+        return response.choices[0].message.content
+    except Exception as e:
+        print(f"[요약 오류] {e}")
+        return ""
+
+
 def analyze_sentiment(titles: list[str]) -> dict:
-    """
-    기사 제목 리스트의 감성 분석 결과 반환
-    - positive / negative / neutral 비율 및 평균 점수 계산
-    """
     if not titles:
         return {"positive": 0, "neutral": 0, "negative": 0, "news_score": 50.0}
 
@@ -55,14 +71,9 @@ def analyze_sentiment(titles: list[str]) -> dict:
 
 
 def get_hero_news(df_industry: pd.DataFrame) -> dict:
-    """
-    업종 기사 중 감성 점수가 가장 높은 기사 1건 선별 (히어로 카드용)
-    동점 시 최신 날짜 우선
-    """
     if df_industry.empty:
         return {}
 
-    # 감성 분석 후 점수 컬럼 추가
     titles = df_industry["title"].tolist()
     results = sentiment_model(titles[:20], truncation=True, max_length=512)
 
@@ -75,7 +86,6 @@ def get_hero_news(df_industry: pd.DataFrame) -> dict:
         for r in results
     ]
 
-    # 채용·고용 키워드 포함 시 보너스
     hire_keywords = ["채용", "공채", "취업", "구직", "인재", "신입"]
     df_scored["hire_bonus"] = df_scored["title"].apply(
         lambda t: 0.05 if any(k in t for k in hire_keywords) else 0
@@ -86,19 +96,20 @@ def get_hero_news(df_industry: pd.DataFrame) -> dict:
         ["final_score", "date"], ascending=[False, False]
     ).iloc[0]
 
+    print(f"[AI 요약] {hero['title'][:30]}...")
+    summary = summarize_article(hero["title"])
+
     return {
         "title": hero["title"],
         "link": hero["link"],
         "date": hero["date"],
         "sentiment": hero["sentiment_label"],
         "sentiment_score": round(hero["final_score"] * 100, 1),
+        "summary": summary,
     }
 
 
 def get_top5_news(df_industry: pd.DataFrame, hero_title: str = "") -> list[dict]:
-    """
-    히어로 기사 제외한 TOP 5 기사 반환
-    """
     titles = df_industry["title"].tolist()
     results = sentiment_model(titles[:20], truncation=True, max_length=512)
 
@@ -125,10 +136,6 @@ def get_top5_news(df_industry: pd.DataFrame, hero_title: str = "") -> list[dict]
 
 
 def calculate_final_score(news_score: float, stock_score: float) -> dict:
-    """
-    최종 전망 점수 계산
-    뉴스 감성 70% + 주가 등락 30%
-    """
     final = round(news_score * 0.7 + stock_score * 0.3, 1)
 
     if final >= 60:
@@ -145,7 +152,6 @@ def calculate_final_score(news_score: float, stock_score: float) -> dict:
 
 
 def predict_all(news_df: pd.DataFrame, stock_scores: dict) -> list[dict]:
-    """전체 업종 예측 결과 생성"""
     results = []
 
     for industry in news_df["industry"].unique():

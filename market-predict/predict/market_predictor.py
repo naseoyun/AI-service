@@ -135,8 +135,8 @@ def get_top5_news(df_industry: pd.DataFrame, hero_title: str = "") -> list[dict]
     ]
 
 
-def calculate_final_score(news_score: float, stock_score: float) -> dict:
-    final = round(news_score * 0.7 + stock_score * 0.3, 1)
+def calculate_final_score(news_score: float, stock_score: float, emp_score: float = 50.0) -> dict:
+    final = round(news_score * 0.6 + stock_score * 0.2 + emp_score * 0.2, 1)
 
     if final >= 60:
         trend = "긍정적"
@@ -161,7 +161,8 @@ def predict_all(news_df: pd.DataFrame, stock_scores: dict) -> list[dict]:
 
         sentiment = analyze_sentiment(titles)
         stock = stock_scores.get(industry, {"stock_score": 50.0, "stock_change": "0%"})
-        final = calculate_final_score(sentiment["news_score"], stock["stock_score"])
+        emp_score = employment_scores.get(industry, 50.0)
+        final = calculate_final_score(sentiment["news_score"], stock["stock_score"], emp_score)       
         hero = get_hero_news(df_industry)
         top5 = get_top5_news(df_industry, hero.get("title", ""))
 

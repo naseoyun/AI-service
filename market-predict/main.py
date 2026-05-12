@@ -4,6 +4,7 @@ from datetime import datetime
 
 from crawlers.news_crawler import crawl_all
 from crawlers.stock_crawler import get_all_stock_scores
+from crawlers.employment_crawler import get_job_seeker_count
 from predict.market_predictor import predict_all
 
 
@@ -24,12 +25,16 @@ def run():
     # 2. 주가 수집
     print("\n[2/3] 주가 데이터 수집 중...")
     stock_scores = get_all_stock_scores()
+    
+    # 3. 고용통계 데이터 수집
+    print("\n[2.5/3] 고용통계 데이터 수집 중...")
+    employment_scores = get_job_seeker_count()
 
-    # 3. 예측 실행
+    # 4. 예측 실행
     print("\n[3/3] 노동시장 전망 예측 중...")
-    results = predict_all(news_df, stock_scores)
+    results = predict_all(news_df, stock_scores, employment_scores)
 
-    # 4. 결과 저장
+    # 5. 결과 저장
     output = {
         "updated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
         "industries": results,

@@ -43,3 +43,43 @@ curl -X POST "http://127.0.0.1:8000/api/employee/harassment/analyze" ^
 - `recommended_actions`: 다음 대응 제안
 
 이 API는 법률 자문이 아니라 초기 위험도 분류용입니다.
+
+# OCR 실행 환경 설정
+
+## 1. Tesseract OCR 설치
+
+Windows용 Tesseract OCR을 설치합니다.
+
+설치 링크:
+[https://github.com/UB-Mannheim/tesseract/wiki](https://github.com/UB-Mannheim/tesseract/wiki)
+
+설치 시 한국어 언어팩(Korean)도 함께 체크합니다.
+
+기본 설치 경로:
+C:\Program Files\Tesseract-OCR\
+
+---
+
+## 2. Python 라이브러리 설치
+
+VS Code 터미널에서 아래 명령어를 실행합니다.
+
+pip install pytesseract pillow
+
+---
+
+## 3. OCR 경로 연결
+
+Python 코드에서 Tesseract 실행 경로를 지정합니다.
+
+import pytesseract
+from PIL import Image
+
+pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+
+text = pytesseract.image_to_string(
+Image.open("chat.png"),
+lang="kor"
+)
+
+print(text)

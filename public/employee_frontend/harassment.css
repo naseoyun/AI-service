@@ -1,0 +1,328 @@
+/* ══════════════════════════════════════════
+   Harassment Page — Base
+══════════════════════════════════════════ */
+:root {
+  --ink: #050505;
+  --muted: #6e747c;
+  --paper: #ffffff;
+  --blue: #128cff;
+  --soft: #f8fafc;
+  --font: 'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', Inter, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: #f9f9fb;
+  font-family: var(--font);
+}
+
+/* ══════════════════════════════════════════
+   히어로 섹션
+══════════════════════════════════════════ */
+.harassment-hero {
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 80px 24px 60px;
+  overflow: hidden;
+  background-image: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1600&q=80');
+  background-size: cover;
+  background-position: center 30%;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(30, 25, 20, 0.52) 0%,
+    rgba(30, 25, 20, 0.38) 60%,
+    rgba(30, 25, 20, 0.18) 100%
+  );
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.hero-title {
+  font-size: 36px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -0.5px;
+  margin: 0 0 10px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+.hero-sub {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0;
+  font-weight: 400;
+}
+
+/* ── 사건 기록 카드 ── */
+.incident-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 820px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px 28px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.14);
+}
+
+.incident-label {
+  font-size: 16px;
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 12px;
+}
+
+.incident-textarea {
+  width: 100%;
+  min-height: 200px;
+  border: none;
+  outline: none;
+  resize: none;
+  font-size: 14px;
+  color: #333;
+  font-family: inherit;
+  line-height: 1.7;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+.incident-textarea::placeholder {
+  color: #ccc;
+}
+
+/* ══════════════════════════════════════════
+   증거 자료 기록
+══════════════════════════════════════════ */
+.evidence-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 56px 24px 0;
+}
+
+.section-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #111;
+  margin: 0 0 24px;
+}
+
+.evidence-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 600px) {
+  .evidence-grid { grid-template-columns: 1fr; }
+}
+
+.evidence-card {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 16px;
+  padding: 18px 20px 28px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.evidence-card-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.evidence-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #d9d9d9;
+  flex-shrink: 0;
+}
+
+.evidence-card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #333;
+}
+
+.evidence-card-content {
+  font-size: 13px;
+  color: #888;
+  margin: 0;
+  padding-left: 38px;
+}
+
+/* ══════════════════════════════════════════
+   기능 카드 3종
+══════════════════════════════════════════ */
+.feature-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px 0;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+@media (max-width: 700px) {
+  .feature-grid { grid-template-columns: 1fr; }
+}
+
+.feature-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #ececec;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.feature-card:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.09);
+  transform: translateY(-2px);
+}
+
+.feature-thumb {
+  height: 140px;
+  width: 100%;
+}
+
+.gradient-green {
+  background: linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 40%, #d4e9b0 100%);
+}
+
+.gradient-brown {
+  background: linear-gradient(135deg, #bcaaa4 0%, #8d6e63 30%, #a5c882 70%, #c5d9a0 100%);
+}
+
+.gradient-teal {
+  background: linear-gradient(135deg, #80cbc4 0%, #4db6ac 40%, #f8bbd0 100%);
+}
+
+.feature-body {
+  padding: 16px 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.feature-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: #111;
+  margin: 0;
+}
+
+.feature-desc {
+  font-size: 12px;
+  color: #888;
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+}
+
+.feature-cta {
+  margin-top: 10px;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #444;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: inherit;
+  transition: color 0.2s;
+}
+
+.feature-cta:hover { color: #5b5ef4; }
+
+.cta-arrow { transition: transform 0.2s; }
+.feature-cta:hover .cta-arrow { transform: translateX(3px); }
+
+/* ══════════════════════════════════════════
+   익명 상담 커뮤니티
+══════════════════════════════════════════ */
+.community-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 64px 24px 80px;
+}
+
+.community-tag {
+  font-size: 12px;
+  font-weight: 700;
+  color: #5b5ef4;
+  letter-spacing: 0.04em;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+
+.community-title {
+  font-size: 28px;
+  font-weight: 900;
+  color: #111;
+  margin: 0 0 12px;
+  letter-spacing: -0.5px;
+}
+
+.community-desc {
+  font-size: 14px;
+  color: #888;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* 뒤로가기 버튼 */
+.report-back-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #333;
+}
+
+.report-back-btn:hover {
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}

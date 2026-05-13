@@ -24,7 +24,7 @@ export default function Navbar() {
           <Link href="/market" className={`menu-item ${isActive('/market') ? 'active' : ''}`}>
             노동시장 예측
           </Link>
-          <Link href="/employee" className={`menu-item ${isActive('/employee') ? 'active' : ''}`}>
+          <Link href="/employee" className={`menu-worker ${isActive('/employee') ? 'active' : ''}`}>
             재직자
           </Link>
         </nav>

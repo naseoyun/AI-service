@@ -19,16 +19,17 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install -r market-predict/requirements.txt
 
       - name: Run crawler
+        working-directory: market-predict
         env:
           NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
           NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
         run: python main.py
 
       - name: Copy result to public
-        run: cp data/result.json public/result.json
+        run: cp market-predict/data/result.json public/result.json
 
       - name: Commit and push
         run: |

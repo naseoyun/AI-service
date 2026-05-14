@@ -109,6 +109,23 @@
   font-size: 20px;
   cursor: pointer;
   transition: all 0.2s;
+}/*사용할때 위화살표 특수문자를 이용*/
+
+.go-btn {
+  display: flex;
+  align-items: center;      /* 수직 중앙 */
+  justify-content: center;   /* 수평 중앙 */
+  padding-bottom: 5px;      /* 이 수치를 조절해서 글자를 위로 밀어 올립니다 */
+
+  background-color: var(--main-purple);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
 .section-title {

@@ -8,7 +8,9 @@
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
+  padding-top: 15vh;
 }
+
 
 .home-titles h2 {
   font-size: 40px;
@@ -37,8 +39,17 @@
 .search-btn {
   background: none;
   border: none;
-  font-size: 24px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.search-btn:hover {
+  background: rgba(0, 0, 0, 0.06);
 }
 
 .company-header-card {
@@ -93,6 +104,11 @@
   box-shadow: var(--shadow-soft);
 }
 
+.company-result {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 .progress-bar {
   height: 10px;
   background: #eee;
@@ -108,10 +124,130 @@
 
 .back-btn {
   display: block;
-  margin: 0 auto 30px;
+  margin: 0 0 30px 0;
   background: none;
   border: none;
   color: var(--text-gray);
   cursor: pointer;
   font-size: 16px;
+}
+
+.employee-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.emp-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: var(--bg-light-gray);
+  padding: 14px 18px;
+  border-radius: 12px;
+}
+
+.emp-label {
+  font-size: 12px;
+  color: var(--text-gray);
+  font-weight: 600;
+}
+
+.emp-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.gender-bar-wrap, .contract-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.gender-bar {
+  display: flex;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 36px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.gender-male {
+  background: var(--main-purple);
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  min-width: fit-content;
+}
+
+.gender-female {
+  background: #e8e9fd;
+  color: var(--main-purple);
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  flex: 1;
+}
+
+.contract-row {
+  display: flex;
+  gap: 10px;
+}
+
+.contract-item {
+  flex: 1;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.contract-item.regular {
+  background: var(--main-purple);
+  color: white;
+}
+
+.contract-item.contract {
+  background: var(--bg-light-gray);
+  color: var(--text-gray);
+}
+
+.financial-detail-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.fin-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+  background: var(--bg-light-gray);
+  border-radius: 12px;
+}
+
+.fin-question {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-gray);
+}
+
+.fin-number {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.fin-comment {
+  font-size: 14px;
+  color: var(--main-purple);
+  font-weight: 600;
 }

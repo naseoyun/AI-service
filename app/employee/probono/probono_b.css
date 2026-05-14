@@ -1,0 +1,153 @@
+:root {
+  --ink: #101114;
+  --muted: #72767d;
+  --line: #e8e9ed;
+  --paper: #f8f8fb;
+  --card: #fff;
+  --font: Inter, Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: var(--font);
+}
+
+.pbb-shell {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 46px 0 78px;
+}
+
+.pbb-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.pbb-header h1 {
+  margin: 0 0 10px;
+  font-size: clamp(32px, 5vw, 48px);
+}
+
+.pbb-header p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.pbb-filters {
+  display: grid;
+  grid-template-columns: 1fr 1fr 160px 130px;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.pbb-filters input,
+.pbb-filters select,
+.pbb-filters button {
+  min-height: 44px;
+  border-radius: 8px;
+  font: inherit;
+}
+
+.pbb-filters input,
+.pbb-filters select {
+  border: 1px solid var(--line);
+  padding: 0 14px;
+  background: #fff;
+}
+
+.pbb-filters button,
+.pbb-refresh {
+  border: 0;
+  padding: 0 18px;
+  color: #fff;
+  background: #111;
+  font: inherit;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.pbb-refresh {
+  min-height: 44px;
+  border-radius: 8px;
+}
+
+.pbb-alert {
+  margin-bottom: 20px;
+  border: 1px solid #f2d8a7;
+  border-radius: 10px;
+  padding: 14px 16px;
+  background: #fff8e8;
+  color: #6f4b00;
+}
+
+.pbb-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.pbb-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px;
+  background: var(--card);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .04);
+}
+
+.pbb-card h2 {
+  margin: 0 0 10px;
+  font-size: 19px;
+  line-height: 1.25;
+}
+
+.pbb-card p {
+  margin: 0 0 10px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.pbb-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.pbb-tags span {
+  border-radius: 999px;
+  padding: 6px 10px;
+  background: #eef5f4;
+  color: #0b6d67;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.pbb-card a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  border-radius: 6px;
+  padding: 0 12px;
+  color: #fff;
+  background: #111;
+  text-decoration: none;
+  font-weight: 850;
+}
+
+@media (max-width: 860px) {
+  .pbb-header,
+  .pbb-filters,
+  .pbb-grid {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+}

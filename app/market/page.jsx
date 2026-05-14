@@ -22,6 +22,7 @@ export default function MarketPage() {
   const [marketData, setMarketData] = useState([]);
   const [lastUpdated, setLastUpdated] = useState('');
   const [selectedId, setSelectedId] = useState(null);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     fetch('/result.json')
@@ -51,11 +52,13 @@ export default function MarketPage() {
           top5: item.top5_news?.map(n => ({ title: n.title, link: n.link })) || [],
         }));
         setMarketData(converted.sort((a, b) => b.score - a.score));
-      });
+      })
+      .catch(() => setError(true));
   }, []);
 
   const selected = marketData.find(d => d.id === selectedId);
 
+  if (error) return <div className="market-page"><p style={{textAlign:'center',padding:'3rem'}}>데이터를 불러오지 못했습니다. 잠시 후 다시 시도해주세요.</p></div>;
   if (!marketData.length) return <div className="market-page"><p style={{textAlign:'center',padding:'3rem'}}>불러오는 중...</p></div>;
 
   if (selected) {
